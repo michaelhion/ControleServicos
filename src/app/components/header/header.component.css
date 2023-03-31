@@ -1,0 +1,28 @@
+.container{
+    height: 80px;
+    width: 100%;
+    background-color: rgb(70, 88, 104);
+    margin: 0px;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+nav{
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.249);
+    border-radius: 5px;
+}
+
+li{
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline;
+    margin: 5px;
+    cursor: pointer;
+}
+
+li:hover{
+  
+    color: black;
+    background-color: white;
+}
