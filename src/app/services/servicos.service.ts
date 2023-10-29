@@ -1,57 +1,63 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Servico } from '../models/Servico.model';
+import { IdNome } from '../models/IdNome.model';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicosService {
 
-  url='http://localhost:8080/servicos'
+  url=`${environment.url}/servicos`;
+  token = localStorage.getItem('token');
 
-  constructor(private http : HttpClient) { }
+  // headers = new HttpHeaders().set("Authorization", "bearer " + this.token);
 
+   headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`
+  });
 
-  listar(): Observable<Servico[]>{
-    return this.http.get<Servico[]>(this.url);
-    
-  }
+  constructor(private http: HttpClient) { }
 
-  total(): Observable<number>{
-    return this.http.get<number>(this.url+"/total");
-    
-  }
-
-  totalComissao(): Observable<number>{
-    return this.http.get<number>(this.url+"/totalcomissao");
-    
-  }
-
-  totalLiquido(): Observable<number>{
-    return this.http.get<number>(this.url+"/totalliquido");
-    
-  }
-
-
-  buscarPorId(id:number): Observable<Servico>{
-  return this.http.get<Servico>(this.url+ "/"+id );
-    
-  }
-
-  adicionar(serv :Servico):Observable<Servico>{
-    console.log("log servico :: " , serv);
-    
-    return this.http.post<Servico>(this.url,serv);
-  }
-
-  excluir(id:number): Observable<Servico>{
-    return this.http.delete<Servico>(this.url+ "/"+id );
-      
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
     }
-
-  buscarPorMes(nrMes:number): Observable<Servico[]>{
-    return this.http.get<Servico[]>(this.url+"/mes/"+nrMes);
-    
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
+
+  listar(): Observable<Servico[]> {
+    return this.http.get<Servico[]>(this.url,{headers:this.headers}).pipe(
+      catchError(this.handleError))
+  }
+
+  buscarPorId(id: number): Observable<Servico> {
+    return this.http.get<Servico>(this.url + "/" + id,{headers:this.headers}).pipe(
+      catchError(this.handleError));
+
+  }
+
+  adicionar(serv: Servico): Observable<Servico> {
+    return this.http.post<Servico>(this.url, serv,{headers:this.headers}).pipe(
+      catchError(this.handleError));
+  }
+
+  excluir(id: number): Observable<Servico> {
+    return this.http.delete<Servico>(this.url + "/" + id,{headers:this.headers}).pipe(
+      catchError(this.handleError));
+
+  }
+
+
+  listarIdNome(): Observable<Servico[]> {
+    return this.http.get<Servico[]>(this.url + "/selecionaIdENomeCliente",{headers:this.headers}).pipe(
+      catchError(this.handleError));
+  }
+
 }

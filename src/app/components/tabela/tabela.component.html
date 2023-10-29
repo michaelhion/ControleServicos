@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th *ngFor="let header of headers">
+      <ng-container
+        *ngTemplateOutlet="header">
+      </ng-container>
+    </th>
+  </tr>
+  <tr *ngFor="let dadosLinha of dados">
+    <td *ngFor="let coluna of colunas">
+      <ng-container
+        *ngTemplateOutlet="coluna; context: { dadosLinha }">
+      </ng-container>
+    </td>
+  </tr>
+</table>

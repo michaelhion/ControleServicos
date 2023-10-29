@@ -1,0 +1,21 @@
+<div class="div_cad">
+    <form [formGroup]="form">
+        <div *ngFor="let field of fields">
+          <label class="lbl_cad" [for]="field.name">{{ field.label }}:</label>
+          <ng-container *ngIf="field.type === 'select'; else inputField">
+            <select class="ipt_cad"  [id]="field.name" [formControlName]="field.name" *ngIf="field.type === 'select'">
+              <option value="">Selecione uma opção</option>
+              <option *ngFor="let option of field.options" [value]="option.id">{{ option.name }}</option>
+            </select>
+                      
+          </ng-container>
+          <ng-template #inputField>
+            <input class="ipt_cad" [type]="field.type || 'text'" [id]="field.name" [formControlName]="field.name">
+          </ng-template>
+        </div>
+        <button class="btn_cad" type="button" (click)="onSubmit()"x>Enviar</button>
+      </form>
+      
+</div>
+
+

@@ -1,0 +1,6 @@
+<div class="div_cad">
+    <h3 class="h_cad">Login</h3>
+    <input class="ipt_cad" type="text" name="user"  placeholder="Usuário" [(ngModel)]="jwtModel.login">
+    <input class="ipt_cad" type="password" name="pass"  placeholder="Senha" [(ngModel)]="jwtModel.senha">
+    <button class="btn_cad" (click)="login(jwtModel)">Entrar</button>
+</div>

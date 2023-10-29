@@ -1,0 +1,22 @@
+<div class="div_cad">
+    <h3 class="h_cad">Cadastro de Faturamento</h3>
+    <label class="lbl_cad" for="">Nome da Cliente</label>
+    <br/>
+    <select class="ipt_cad" [(ngModel)]="clienteSelecionado" (ngModelChange)="atualizarValor()">
+        <option *ngFor="let c of cliente" [ngValue]="c">{{c.nome}}</option>
+    </select>
+    <br/>
+    <label class="lbl_cad" for="">Nome do Serviço</label>
+    <br/>
+    <select class="ipt_cad" [(ngModel)]="servicoSelecionado" (ngModelChange)="atualizarValor()">
+        <option *ngFor="let s of servico" [ngValue]="s">{{s.nomeServico}}</option>
+    </select>
+    <br/>
+    <label class="lbl_cad" for="">Valor</label>
+    <input class="ipt_cad" type="text" name="categoria.nome" [(ngModel)]="faturamento.valor"/>
+    <label class="lbl_cad" for="">Data</label>
+    <input class="ipt_cad" type="date" name="categoria.nome" [(ngModel)]="faturamento.data" />
+    <button class="btn_cad" (click)="adicionar(faturamento)">cadastrar</button>
+</div>
+<!-- <app-formulario [fields]="userFields"></app-formulario> -->
+
