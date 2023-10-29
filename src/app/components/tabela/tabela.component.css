@@ -1,0 +1,76 @@
+*{
+    text-align: center;
+}
+div{
+    margin: auto;
+    width: 90%;
+}
+select{
+  width: 100px;
+}
+option{
+  text-transform: capitalize;
+}
+
+table, td, th {
+    border: 1px solid black;
+  }
+  thead th{
+    text-transform: capitalize;
+    border: 1px solid white;;
+  }
+  table {
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+thead{
+  background-color: black;
+  color:white;
+  font-weight: bold;
+}
+tr:hover{
+  background-color: rgb(213, 223, 232);
+}
+thead tr:hover{
+  background-color: black;
+  color:white;
+  font-weight: bold;
+}
+
+img{
+  margin-left: 15px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+.btn{
+  margin-top: 10px;
+}
+button{
+  height: 25px;
+  background-color:rgb(214, 226, 230);
+  width: 250px;
+}
+
+button:hover{
+  margin-left: 5px;
+  height: 30px;
+  background-color:rgb(63, 150, 111);
+  width: 250px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 480px){
+  .linha-em-branco{display: none;}
+  img{
+    display: flex;
+  }
+  .content{width: 100%; }
+  .rTable thead{display:none;}
+  .rTable tr td{display: flex; flex-direction: column;width: 95%;margin-left: auto; margin-right: auto;}
+  
+  .btn{ width: 90%; margin-left: 1rem;}
+}

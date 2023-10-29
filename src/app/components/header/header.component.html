@@ -1,8 +1,25 @@
-<div class="container">
+<div class="container" *ngIf="mostraMenu()">
     <nav>
         <ul>
-            <li routerLink="/listar">Listar</li>
-            <li routerLink="/adicionar">Adicionar</li>
+            <li routerLink="" class="home">Home</li>
+            <li routerLink="/relatorio" class="home">Relatório</li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Listar</a>
+                <div class="dropdown-content">
+                  <a routerLink="/listar">Listar Servico</a>
+                  <a routerLink="/listarCliente">Listar Cliente</a>
+                  <a routerLink="/faturamento">Listar Fatura</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Adicionar</a>
+                <div class="dropdown-content">
+                  <a routerLink="/adicionar">Adicionar Servico</a>
+                  <a routerLink="/cadastroCliente">Adicionar  Cliente</a>
+                  <a routerLink="/cadastroFatura">Adicionar  Fatura</a>
+                </div>
+            </li>
+            <button class="sair" (click)="sair()">sair</button>
         </ul>
     </nav>
 </div>

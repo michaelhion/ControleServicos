@@ -1,58 +1,37 @@
-
+<div>
+    <button class="btn-grad" routerLink="/adicionar">Adicionar </button>
+</div>
 <div class="content">
-    <div style="margin-bottom: 5px;margin-left: 5px;">
+    <!-- <div style="margin-bottom: 5px;margin-left: 5px;">
         <label for="" style="display: block;margin-bottom:5px;font-weight: bold;">Filtrar por mês</label>
-        <select style="display: block;margin-bottom:5px;" id="filtraMes" [(ngModel)]="nrMes" (ngModelChange)="toNumber()">
+        <select style="display: block;margin-bottom:5px;" id="filtraMes" [(ngModel)]="nrMes"
+            (ngModelChange)="toNumber()">
             <option *ngFor="let mes of meses" [ngValue]="mes.id">{{mes.name}}</option>
         </select>
-    </div>
+    </div> -->
     <table class="rTable" id="excel-table">
         <thead>
             <tr>
                 <th>nome do servico</th>
-                <th>nome da cliente</th>
                 <th>valor</th>
-                <th>Valor Salao</th>
-                <th>Valor A receber</th>
-                <th>data</th>
                 <th>ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let serv of servico">
+            <tr *ngFor="let serv of listaServico">
                 <td>{{serv.nomeServico}}</td>
-                <td>{{serv.nomeCliente}}</td>
                 <td>{{serv.valor | currency: 'BRL'}}</td>
-                <td>{{serv.vlComissao | currency: 'BRL'}}</td>
-                <td>{{serv.vlLiquido | currency: 'BRL'}}</td>
-                <td>{{serv.data | date : 'dd/MM/yyyy'}}</td>
                 <td>
-                    <img src="./../../../assets/edit.svg" [routerLink]="['/adicionar', serv.id]"/> 
-                    <img src="./../../../assets/delete.svg" (click)="excluir(serv.id)"/>
+                    <img src="./../../../assets/edit.svg" [routerLink]="['/adicionar', serv.id]" />
+                    <img src="./../../../assets/delete.svg" (click)="excluir(serv.id)" />
                 </td>
             </tr>
-            
+
         </tbody>
-        <tfoot>
-            <tr class="linha-em-branco">
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-                <td> - </td>
-            </tr>
-            <tr >
-              <td style="background-color: black;color:white;font-weight:bold ;">Minha Quinzena</td>
-              <td> - </td>
-              <td style="font-weight:bold ;">{{valorTotal | currency :'BRL'}}</td>
-              <td style="font-weight:bold ;">{{valorTotalComissao | currency :'BRL'}}</td>
-              <td style="font-weight:bold ;">{{valorTotalLiquido | currency :'BRL'}}</td>
-              <td> - </td>
-              <td></td>
-            </tr>
-          </tfoot>
     </table>
-        <button class="btn" (click)="exportexcel()">Exportar Excel</button>
+    <!-- <button class="btn" (click)="exportexcel()">Exportar Excel</button> -->
 </div>
+
+<!-- <app-tabela [dados]="listaServico" [title]="titulo">
+    
+</app-tabela> -->

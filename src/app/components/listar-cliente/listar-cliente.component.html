@@ -1,0 +1,32 @@
+<div>
+    <button class="btn-grad" routerLink="/cadastroCliente">Adicionar </button>
+</div>
+<div class="content">
+
+
+<table class="rTable" id="excel-table">
+    <thead>
+        <tr>
+            <th>nome da</th>
+            <th>data nascimento</th>
+            <th>email</th>
+            <th>telefone</th>
+            <th>ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cli of clientes">
+            <td>{{cli.nomeCompleto}}</td>
+            <td>{{cli.dataNascimento | date : 'dd/MM/yyyy'}}</td>
+            <td>{{cli.email}}</td>
+            <td>{{cli.telefone}}</td>
+            <td>
+                <img src="./../../../assets/edit.svg" [routerLink]="['/cadastroCliente', cli.id]"/> 
+                <img src="./../../../assets/delete.svg" (click)="excluir(cli.id)"/>
+            </td>
+        </tr>
+        
+    </tbody>
+    
+</table>
+</div>

@@ -1,11 +1,8 @@
-<div>
-    <label for="">Nome do Servico</label>
-    <input type="text" name="categoria.nome" [(ngModel)]="servico.nomeServico" />
-    <label for="">Nome da Cliente</label>
-    <input type="text" name="categoria.nome" [(ngModel)]="servico.nomeCliente" />
-    <label for="">Valor</label>
-    <input type="text" name="categoria.nome" [(ngModel)]="servico.valor" />
-    <label for="">Data</label>
-    <input type="date" name="categoria.nome" [(ngModel)]="servico.data" />
-    <button (click)="adicionar(servico)">cadastrar</button>
+<div class="div_cad">
+    <h3 class="h_cad">Cadastro de Serviço</h3>
+    <label class="lbl_cad" for="">Nome do Servico</label>
+    <input class="ipt_cad" type="text" name="categoria.nome" [(ngModel)]="servico.nomeServico" />
+    <label class="lbl_cad" for="">Valor</label>
+    <input class="ipt_cad" type="text" name="categoria.nome" [(ngModel)]="servico.valor" />
+    <button class="btn_cad" (click)="adicionar(servico)">cadastrar</button>
 </div>

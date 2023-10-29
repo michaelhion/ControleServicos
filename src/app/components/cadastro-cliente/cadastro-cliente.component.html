@@ -1,0 +1,12 @@
+<div class="div_cad">
+    <h3 class="h_cad">Cadastro de Cliente</h3>
+    <label class="lbl_cad" for="">Nome da Cliente</label>
+    <input class="ipt_cad" type="text" name="cliente.nomeCompleto" [(ngModel)]="cliente.nomeCompleto" />
+    <label class="lbl_cad" for="">Data Nascimento</label>
+    <input class="ipt_cad"type="date" name="cliente.dataNascimento" [(ngModel)]="cliente.dataNascimento"/>
+    <label class="lbl_cad" for="">Telefone</label>
+    <input class="ipt_cad" type="text" name="cliente.telefone" [(ngModel)]="cliente.telefone" />
+    <label class="lbl_cad" for="">Email</label>
+    <input class="ipt_cad" ype="text" name="cliente.email" [(ngModel)]="cliente.email" />
+    <button class="btn_cad"(click)="adicionar(cliente)">cadastrar</button>
+</div>

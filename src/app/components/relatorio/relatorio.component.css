@@ -1,0 +1,26 @@
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+div{
+    margin-top: 20px;
+}
+input{
+    margin: 5px;
+    display: block;
+}
+
+label{
+    margin: 5px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+button{
+    width: 200px;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: rgb(162, 181, 169);
+    border-radius: 2px;
+}

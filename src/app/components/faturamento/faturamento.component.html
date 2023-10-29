@@ -1,0 +1,56 @@
+<div>
+    <button class="btn-grad" routerLink="/cadastroFatura">Adicionar </button>
+</div>
+<div class="content">
+    <!-- <div style="margin-bottom: 5px;margin-left: 5px;">
+        <label for="" style="display: block;margin-bottom:5px;font-weight: bold;">Filtrar por mês</label>
+        <select style="display: block;margin-bottom:5px;" id="filtraMes" [(ngModel)]="nrMes"
+            (ngModelChange)="toNumber()">
+            <option *ngFor="let mes of meses" [ngValue]="mes.id">{{mes.name}}</option>
+        </select>
+    </div> -->
+    <table class="rTable" id="excel-table">
+        <thead>
+            <tr>
+                <th>nome da cliente</th>
+                <th>nome do servico</th>
+                <th>valor</th>
+                <th>data</th>
+                <th>ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of faturamento">
+                <td>{{f.nomeCliente}}</td>
+                <td>{{f.nomeServico}}</td>
+                <td>{{f.valor | currency : 'BRL'}}</td>
+                <td>{{f.data | date : 'dd/MM/yyyy'}}</td>
+                <td>
+                    <img src="./../../../assets/edit.svg" [routerLink]="['/adicionar', f.id]"/> 
+                    <img src="./../../../assets/delete.svg" (click)="excluir(f.id)"/>
+                </td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+         <!-- <button class="btn" (click)="exportexcel()">Exportar Excel</button> -->
+</div>
+
+<!-- <app-tabela [dados]="faturamento">
+    
+         Adicionarmos um #header para identificar
+         quais ng-template correspondem ao cabeçalho
+    <ng-template #header>Link</ng-template>
+    <ng-template #coluna let-item="dadosLinha">
+        <a [attr.href]="'teste/' + item.id">{{item.id}}</a>
+    </ng-template>
+
+    <ng-template #header>Nome</ng-template>
+    <ng-template #coluna let-item="dadosLinha">
+        <img
+          [attr.alt]="item.nome"
+          [src]="'https://via.placeholder.com/100x60?text=' + item.clienteId"
+        />
+    </ng-template>
+</app-tabela> -->

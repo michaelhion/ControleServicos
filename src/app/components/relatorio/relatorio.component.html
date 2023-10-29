@@ -1,0 +1,21 @@
+<div class="content">
+    <label for="dataInicio">Data início</label>
+<input type="date" id="dataInicio" [(ngModel)]="dataInicio" (change)="atualizarDatas()" />
+
+<label for="dataFim">Data fim</label>
+<input type="date" id="dataFim" [(ngModel)]="dataFim" />
+<br/>
+<label for="intervalo15">15 dias</label>
+<input type="checkbox" id="intervalo15" [(ngModel)]="intervalo15" (change)="atualizarDatas()" />
+
+<label for="intervalo30">30 dias</label>
+<input type="checkbox" id="intervalo30" [(ngModel)]="intervalo30" (change)="atualizarDatas()" />
+
+<label for="dataAtual">Data atual</label>
+<input type="checkbox" id="dataAtual" [(ngModel)]="usarDataAtual" (change)="atualizarDatas()" />
+
+<button (click)="limparSelecao()">Limpar Seleção</button>
+<br/>
+<br/>
+<button (click)="gerarRelatorio()">Gerar excel</button>
+</div>
